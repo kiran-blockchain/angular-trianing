@@ -1,0 +1,27 @@
+<div  class="container mt-4">
+    <div class="alert alert-dismissible alert-danger" *ngIf="hasError">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <a href="#" class="alert-link">Invalid Credentails</a> 
+      </div>
+      <div class="alert alert-dismissible alert-success" *ngIf="showSuccess">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <a href="#" class="alert-link">Successful Login</a> 
+      </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" [(ngModel)]="loginObj.email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-4">
+            <input type="password" class="form-control" [(ngModel)]="loginObj.password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="offset-md-3">
+        <button class="btn btn-primary" (click)="login()">Login</button>
+    </div>
+    </div>
+</div>

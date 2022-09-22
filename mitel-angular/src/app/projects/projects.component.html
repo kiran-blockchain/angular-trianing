@@ -1,0 +1,19 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Project Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Phone</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="searchProjects && searchProjects.length>0">
+        <tr *ngFor="let p of searchProjects">
+           
+            <td>{{p.ProjectId}}</td>
+            <td>{{p.ProjectName}}</td>
+            <td>{{p.LocationName}}</td>
+            <td>{{p.PhoneNumber}}</td>
+        </tr>
+    </tbody>
+</table>

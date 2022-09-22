@@ -1,0 +1,28 @@
+<h1>{{currentDate|date:'MMMM-dd-yyyy hh:mm:ss'}}</h1>
+<div class="row">
+    <div class="col-md-4">
+        <input type="text" [(ngModel)]="searchText" class="form-control"/>
+    </div>
+    <div class="col-md-6">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 border mt-2" *ngFor="let p of products| paginate: { itemsPerPage: 10, currentPage: p }|search:searchText">
+        <figure class="figure" >
+            <img [src]="p.image"
+                class="figure-img img-fluid rounded" alt="..." >
+            <figcaption class="figure-caption">{{p.name|lowercase}}- {{p.price|currency:'INR'}} </figcaption>
+        
+            <div>
+                <label appChangecolor>Total : {{p.totalPrice|currency:'USD'}}</label>
+            </div>
+            <div>
+                <button class="btn btn-danger" (click)="removeItem(p)">-</button>
+                <label class="mt-3 ml-5 mr-5">{{p.count}}</label>
+                <button class="btn btn-success" (click)="addItem(p)">+</button>
+            </div>
+        </figure>
+    </div>
+   
+</div>

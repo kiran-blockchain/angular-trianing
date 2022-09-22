@@ -1,0 +1,8 @@
+
+
+
+  <select class="form-control" appChangecolor [(ngModel)]="selectedValue" (change)="optionSelected()" name="country">
+    <option value="">Please Select</option>
+    <option *ngFor="let  i of listItems" [value]="i.value">{{i.text}}
+    </option>
+</select>

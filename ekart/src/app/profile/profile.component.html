@@ -1,0 +1,43 @@
+<!-- <form [formGroup]="profileForm" class="container mt-4"> -->
+    <!-- <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control"
+        formControlName="email"
+        allowPattern
+        pattern ="{{alphabets}}"
+         >
+      </div>
+      <div appChangecolor *ngIf="f.email.touched">
+        <div  *ngIf="f.email && f.email.errors && f.email.errors.required">Email is required</div>
+        <div *ngIf="f.email && f.email.errors && f.email.errors.minlength">Email minimum length is 10</div>
+        <div *ngIf="f.email && f.email.errors && f.email.errors.pattern">Email is invalid</div>
+      </div>
+    </div> -->
+    <!--  -->
+    <form [formGroup]="profileForm" class="container mt-4">
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-4">
+            <input type="text" formControlName="FirstName" class="form-control">
+            <div *ngIf="f.FirstName && f.FirstName.errors && f.FirstName.dirty">
+                <div *ngIf="f.FirstName.errors['required']">First Name is required</div>
+                <div *ngIf="f.FirstName.errors['minlength']">First Name minimum length is 3</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label  class="col-sm-2 col-form-label">Age</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" 
+          formControlName="age"
+          allowPattern
+          pattern ="{{numbersOnly}}"
+          >
+          <div *ngIf="f.age &&f.age.dirty && f.age.errors && f.age.errors['age']">Age Must be between 18  and 45</div>
+        </div>
+      </div>
+    <div class="form-group">
+        <button class="btn btn-primary" (click)="handleSubmit()">Login</button>
+    </div>
+</form>
