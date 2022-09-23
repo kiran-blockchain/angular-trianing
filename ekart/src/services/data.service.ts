@@ -53,7 +53,7 @@ export class DataService {
         return this.userDetails;
     }
     getCountriesFromApi(){
-        let endPoint  = 'https://restcountries.com/v2/all';
+        let endPoint  = '/countries/all';
         //return this.http.get(endPoint).toPromise();
         return this.http.get(endPoint);
     }

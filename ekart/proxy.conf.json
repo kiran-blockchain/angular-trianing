@@ -1,0 +1,6 @@
+{
+    "/countries": {
+      "target": "https://restcountries.com/v2/",
+      "secure": false
+    }
+  }
