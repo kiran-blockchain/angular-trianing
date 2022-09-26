@@ -1,7 +1,7 @@
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 import { WikiService } from './wiki.service';
-import { Observable, tap } from 'rxjs';
+import { Observable, tap, of } from 'rxjs';
 jest.mock('./wiki.service'); // mock class WikiService
 
 let handler: HttpHandler;
@@ -22,21 +22,26 @@ describe('WikiService', () => {
     expect(service.search).toBeDefined;
   });
   it('methods are called', () => {
-   let params:any = { query: {
-    search: [{
-      ns: 1,
-      title: '',
-      pageid: 1,
-      size: 10,
-      wordcount:1000,
-      snippet:'1111111sdffsd',
-      timestamp: new Date()
-   }]}
-  };
-  let Result = service.search('result');
-  console.log("Result",Result)
-  //expect(service.search).toBeDefined
-   //service.search('helloo').pipe(tap(console.dir))
-    
+    let params: any = {
+      query: {
+        search: [{
+          ns: 1,
+          title: '',
+          pageid: 1,
+          size: 10,
+          wordcount: 1000,
+          snippet: '1111111sdffsd',
+          timestamp: new Date()
+        }]
+      }
+    };
+    jest.spyOn(service, 'search').mockReturnValue(of('my result '))
+    service.search('search').subscribe((res) => {
+      console.log(res);
+      expect(res).toBe('my result ')
+      // verify results
+      //done();
+    });
+
   });
 });

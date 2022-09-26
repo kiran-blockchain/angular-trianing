@@ -33,7 +33,7 @@ describe('JEST can assert Pormises', () => {
   });
 
   it('Promise uses Jest resolves()', () => {
-    return expect(promise2()).rejects.toEqual('rejected');
+    return expect(promise2()).rejects.toEqual('Error');
   });
 });
 
